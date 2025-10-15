@@ -11,7 +11,7 @@ services:
       - "8000:8000"
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health || exit 1"]
+      test: ["CMD", "curl", "-f", "http://54.146.76.101:8000/health || exit 1"]
       interval: 30s
       timeout: 5s
       retries: 3
@@ -25,7 +25,7 @@ services:
       - "80:80"
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost || exit 1"]
+      test: ["CMD", "curl", "-f", "http://54.146.76.101 || exit 1"]
       interval: 30s
       timeout: 5s
       retries: 3
@@ -45,7 +45,7 @@ services:
       - node-exporter
       - cadvisor
     healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:9090/-/ready" || exit 1]
+      test: ["CMD", "wget", "--spider", "-q", "http://54.146.76.101:9090/-/ready" || exit 1]
       interval: 20s
       timeout: 5s
       retries: 3
